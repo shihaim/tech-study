@@ -11,10 +11,6 @@ plugins {
 group = "org.example"
 version = "unspecified"
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
 application {
     // 예제 실행기. ./gradlew :01-concurrency-basics:run --args="03 07"
     mainClass = "concurrency.MainKt"
