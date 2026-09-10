@@ -2,6 +2,7 @@
 
 학습 예제를 위한 작은 공통 라이브러리입니다. 외부 라이브러리나 DI 프레임워크 없이 Gradle 프로젝트 의존성으로 사용합니다.
 
+[전체 문서 지도](../docs/README.md) · [모듈 구조](../docs/architecture.md) · [Kotlin 확장 함수 문법](../docs/kotlin/lambdas-and-collections.md#topic-15)
 
 ```text
 01-concurrency-basics ──→ study-support

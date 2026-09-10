@@ -70,6 +70,14 @@ MiniResult는 학습용이며 JDK Future를 대체하지 않습니다. 완료·g
 성공·실패, 완료 선행, 대기 선행, interrupt, timeout, 중복 호출을 실행 중 검증합니다.
 완료 없이 보내는 unpark는 조건 재검사 예제이며 JVM의 spurious wakeup 자체를 강제로 만드는 것은 아닙니다.
 
+## 상세 문서
+
+- [실행 흐름](docs/execution-flow.md) — submit, 워커, 큐, Spring으로의 연결
+- [결과 공개와 대기](docs/waiting-and-signalling.md) — MiniResult와 경쟁 조건
+- [풀 크기와 병목](docs/sizing-and-bottlenecks.md) — CPU/I/O, 연결 점유 시간
+- [Kotlin 권장 패턴과 실수](../docs/kotlin/idioms-and-pitfalls.md) — apply·let·Result·check·require
+- [Kotlin 빠른 찾기](../docs/kotlin/README.md) — 모르는 표기부터 찾기
+
 ## 참고 자료
 
 제공된 Executor 본문과 Q&A를 학습 주제의 기준으로 삼고, JDK 25 API에 맞춰 예제를 작성했습니다.

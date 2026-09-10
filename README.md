@@ -3,6 +3,7 @@
 기술 개념을 Kotlin 코드로 실습하고 정리하는 학습 레포입니다.
 학습 주제별로 Gradle 모듈을 분리합니다.
 
+문서를 찾으려면 [전체 문서 지도](docs/README.md), Kotlin 표기가 낯설다면 [Kotlin 빠른 찾기](docs/kotlin/README.md)에서 시작하세요.
 
 ## 학습 목차
 
@@ -42,6 +43,7 @@ macOS/Linux에서는 `.\gradlew.bat` 대신 `./gradlew`를 사용합니다.
 - `01-concurrency-basics/`: 동시성 학습 코드와 문서
 - `02-executor-threadpool/`: 스레드 풀 학습 코드와 문서
 - `study-support/`: 학습 모듈이 함께 사용하는 로깅·스레드 생성·대기·종료 유틸리티
+- `docs/`: Kotlin 공통 지식, 문서 관리 규칙, 모듈 구조
 - `buildSrc/`: Kotlin JVM, JDK 25, 콘솔 UTF-8, 테스트 실행 공통 설정
 - `gradle/libs.versions.toml`: Kotlin 버전과 빌드 플러그인 의존성
 - `gradle/wrapper/`, `gradlew`, `gradlew.bat`: Gradle Wrapper
@@ -57,6 +59,7 @@ macOS/Linux에서는 `.\gradlew.bat` 대신 `./gradlew`를 사용합니다.
 학습 모듈끼리는 의존하지 않으며, `study-support`도 학습 모듈을 참조하지 않습니다.
 `buildSrc`는 빌드 설정을 공유하고 `study-support`는 실행 시 사용하는 코드를 공유합니다.
 
+책임 구분과 새 학습 모듈 추가 절차는 [모듈 구조](docs/architecture.md)에서 확인합니다.
 
 새 학습 모듈에서도 다음 설정으로 [공통 유틸리티](study-support/README.md)를 사용할 수 있습니다.
 

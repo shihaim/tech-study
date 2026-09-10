@@ -30,6 +30,14 @@ Java 의 `Runnable`, `Future`, `CompletableFuture` 를 Kotlin 예제로 정리�
 
 ## 실행 방법
 
+관련 문서:
+
+- [작업 정의와 실행 전략](docs/task-and-execution.md) — Ex01, ThreadLocal과 예외 경로
+- [Executor 선택](docs/choosing-an-executor.md) — Ex05·06, 공유 풀과 작업 격리
+- [Blocking과 완료 통보](docs/blocking-vs-nonblocking.md) — Ex09의 관찰과 한계
+- [Kotlin 빠른 찾기](../docs/kotlin/README.md) — 기존 Kotlin 문법 문서의 새 위치
+- [Java 연동 문법](../docs/kotlin/java-interop.md) — SAM·Void·null·예외
+
 각 예제 파일에 `main()` 이 있어 IDE 에서 파일별로 바로 실행할 수 있습니다.
 CLI 에서는 다음과 같이 실행합니다.
 
@@ -68,8 +76,8 @@ CompletableFuture = Future + CompletionStage (후속 작업 조립 가능)
 ```
 
 - `future.get()` 은 호출한 Thread 를 Blocking 한다. 비동기 흐름의 "경계" 에서만 쓴다.
-- `cancel(true)` / `shutdownNow()` 는 interrupt 요청일 뿐, 작업이 협조해야 멈춘다.
+- FutureTask의 `cancel(true)`와 실행기의 `shutdownNow()`는 interrupt를 통한 중단을 시도한다. CompletableFuture의 취소는 같은 방식으로 실행 작업을 interrupt하지 않는다.
 - `thenApply` 는 map, `thenCompose` 는 flatMap 이다.
 - 체인의 예외는 `CompletionException` 으로 감싸지므로 `cause` 를 확인한다.
 - Blocking I/O 를 `supplyAsync` 로 감싸도 Worker Thread 는 그대로 묶인다.
-  전용 Executor 를 지정하고 크기를 넉넉히 잡을 것.
+  작업 격리가 필요하면 전용 Executor를 사용하고, 크기는 외부 자원 상한과 함께 측정할 것.
