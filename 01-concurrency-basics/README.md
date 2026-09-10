@@ -24,8 +24,9 @@ Java 의 `Runnable`, `Future`, `CompletableFuture` 를 Kotlin 예제로 정리�
 | 09 | [Ex09NonBlocking.kt](src/main/kotlin/concurrency/Ex09NonBlocking.kt) | `CompletableFuture` 라고 자동으로 Non-blocking 이 되지는 않는다 |
 | 10 | [Ex10KotlinNotes.kt](src/main/kotlin/concurrency/Ex10KotlinNotes.kt) | Java 로 쓰던 사람이 Kotlin 에서 걸리는 지점들 |
 
-공통 유틸리티(로거, 이름 붙은 Thread Pool, 예제용 도메인)는
-[Support.kt](src/main/kotlin/concurrency/Support.kt) 에 있습니다.
+로깅·스레드 이름 생성 등 공통 실습 유틸리티는 [study-support](../study-support/README.md)에서 가져옵니다.
+이 모듈에서 사용하는 고정 크기 풀 생성과 예제용 도메인은
+[Support.kt](src/main/kotlin/concurrency/Support.kt)에 남겨 둡니다.
 
 ## 실행 방법
 
