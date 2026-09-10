@@ -9,6 +9,7 @@
 | 모듈 | 내용 |
 | --- | --- |
 | [01-concurrency-basics](01-concurrency-basics/README.md) | Runnable, Callable, Future, CompletableFuture와 동시성 기초 |
+| [02-executor-threadpool](02-executor-threadpool/README.md) | Executor, 작업 배치, 포화 정책, 종료와 자원 병목 |
 
 ## 실행 방법
 
@@ -39,6 +40,7 @@ macOS/Linux에서는 `.\gradlew.bat` 대신 `./gradlew`를 사용합니다.
 ## 레포 구조
 
 - `01-concurrency-basics/`: 동시성 학습 코드와 문서
+- `02-executor-threadpool/`: 스레드 풀 학습 코드와 문서
 - `study-support/`: 학습 모듈이 함께 사용하는 로깅·스레드 생성·대기·종료 유틸리티
 - `buildSrc/`: Kotlin JVM, JDK 25, 콘솔 UTF-8, 테스트 실행 공통 설정
 - `gradle/libs.versions.toml`: Kotlin 버전과 빌드 플러그인 의존성
@@ -51,7 +53,7 @@ macOS/Linux에서는 `.\gradlew.bat` 대신 `./gradlew`를 사용합니다.
 
 ## 공통 코드 사용
 
-`01-concurrency-basics`는 `study-support`에 의존합니다.
+`01-concurrency-basics`와 `02-executor-threadpool`은 각각 `study-support`에 의존합니다.
 학습 모듈끼리는 의존하지 않으며, `study-support`도 학습 모듈을 참조하지 않습니다.
 `buildSrc`는 빌드 설정을 공유하고 `study-support`는 실행 시 사용하는 코드를 공유합니다.
 

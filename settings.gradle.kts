@@ -21,3 +21,4 @@ rootProject.name = "tech-study"
 // 학습 주제별 모듈을 등록한다.
 include("study-support")
 include("01-concurrency-basics")
+include("02-executor-threadpool")

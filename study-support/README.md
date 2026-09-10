@@ -5,6 +5,7 @@
 
 ```text
 01-concurrency-basics ──→ study-support
+02-executor-threadpool ─→ study-support
 ```
 
 ## 사용 방법
