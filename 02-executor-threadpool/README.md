@@ -21,6 +21,22 @@ Kotlin + JDK 25만 사용합니다. Spring, 코루틴, 실제 DB/HTTP 연결은 
 | 06 | [자원 병목](src/main/kotlin/executor/Ex06ResourceBottleneck.kt) | 연결 상한과 획득 대기·점유 시간 |
 | 07 | [MiniResult](src/main/kotlin/executor/Ex07MiniResult.kt) | 단일 대기자 결과 전달의 volatile·park/unpark |
 
+## 코드 읽는 순서
+
+각 파일의 `runExXX()`에서 실험 순서를 먼저 보고, 호출하는 시나리오 함수를 읽으면 됩니다.
+거절 정책, 종료 방식, MiniResult의 완료·대기·실패 상황은 각각 별도 함수로 나누었습니다.
+주석의 번호는 준비 → 실행 → 관찰 흐름을 나타내며, 호출자와 워커가 하는 일을 구분합니다.
+
+- `workerStarted` / `workersStarted`: 워커가 시작했다는 신호입니다. 호출자가 이 신호를 기다립니다.
+- `releaseWorker` / `releaseWorkers`: 관찰이 끝났다는 신호입니다. 워커가 기다리고 호출자가 풀어 줍니다.
+- `awaitChecked()`: latch를 제한 시간 안에서 기다립니다.
+- `result()`: 제한 시간을 둔 `Future.get()`입니다. 결과를 읽는 호출자가 기다립니다.
+- `eventually(...)`: 워커 수처럼 비동기적으로 바뀌는 상태가 조건을 만족할 때까지 확인합니다.
+- `stop()`: `finally`에서 풀을 제한 시간 안에 정리하는 공통 헬퍼입니다.
+
+이 대기·검증 코드는 관찰 조건을 고정하기 위한 실험 장치입니다.
+학습할 API의 흐름을 읽은 뒤, 신호를 누가 보내고 누가 기다리는지 따라가 보세요.
+
 ## 실행
 
 Gradle도 JDK 25로 실행해야 합니다. `JAVA_HOME`을 설치된 JDK 25 경로로 설정하세요.

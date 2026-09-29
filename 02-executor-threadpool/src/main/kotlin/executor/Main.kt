@@ -3,8 +3,13 @@ package executor
 import study.support.Log.log
 
 private val examples = linkedMapOf<String, () -> Unit>(
-    "01" to ::runEx01, "02" to ::runEx02, "03" to ::runEx03,
-    "04" to ::runEx04, "05" to ::runEx05, "06" to ::runEx06, "07" to ::runEx07,
+    "01" to ::runEx01,
+    "02" to ::runEx02,
+    "03" to ::runEx03,
+    "04" to ::runEx04,
+    "05" to ::runEx05,
+    "06" to ::runEx06,
+    "07" to ::runEx07,
 )
 
 fun main(args: Array<String>) {
